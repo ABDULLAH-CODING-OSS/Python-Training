@@ -1,18 +1,56 @@
+import csv
+from urllib.parse import urljoin
+
 import requests
+
 from bs4 import BeautifulSoup
-url = "https://books.toscrape.com/"
-response = requests.get(url)
 
-soup = BeautifulSoup(response.content,  "html.parser")
-firstBook = soup.find("article")
-# print(firsBook.prettify())
+base_url = "https://books.toscrape.com/" 
+url = base_url
+all_books=[]
 
-# print(response.status_code)
-# print(response.text[:1000])
+csv_filename = "books.csv"
 
-title = firstBook.h3.a["title"]
 
-#price = firstBook.find("p", _class= "price_color").text
+try:
+    with open(csv_filename, mode="w", newline="", encoding="utf-8") as file:
+        fieldnames = ["title", "price", "rating"]
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
 
-print(f"Title: {title}")
-#print(f"Price: {price}")
+        while url:
+            print(f"Scraping page: {url}")
+            response = requests.get(url)
+            soup = BeautifulSoup(response.content, "html.parser")
+            books = soup.find_all("article", class_="product_pod")
+
+            for book in books:
+                title = book.h3.a["title"]
+                price = book.find("p", class_="price_color").text
+                rating = book.find("p", class_="star-rating")["class"][1]
+                print(f"Title: {title}, Price: {price}, Rating: {rating}")
+                book_data = {"title": title, "price": price, "rating": rating}
+                all_books.append(book_data)
+                writer.writerow(book_data)
+
+            next_button = soup.find("li", class_="next")
+            if next_button:
+                next_page = next_button.a["href"]
+                print(f"Next page found: {next_page}")
+                url = urljoin(url, next_page)
+            else:
+                url = None
+
+    print("Successfully saved all books to CSV file.")
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred while making the request: {e}")
+print(len(all_books))
+
+
+
+
+
+
+
+
+
