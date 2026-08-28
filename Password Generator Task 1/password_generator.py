@@ -1,11 +1,12 @@
 import random
+import secrets
 import string
 import datetime
 
 
 
-def generate(lenght , choice):
-    if lenght < 1:
+def generate(length , choice):
+    if length < 1:
         return "Invalid password length. Please enter a positive integer."
     if choice not in ["strong", "medium", "weak"]:
         return "Invalid password strength choice. Please choose 'strong', 'medium', or 'weak'."
@@ -23,13 +24,14 @@ def generate(lenght , choice):
         characters = Lcharacters + Ucharacters
     
 
-    for i in range(lenght):
-        password+= random.choice(characters)
+    for i in range(length):
+        password+= secrets.choice(characters)
 
     return password
 
 def savePassword(password):
     with open("passwords.txt", "a") as file:
         file.write(f"{datetime.datetime.now()}: {password}\n")
+        print("Password saved to passwords.txt") 
 
 

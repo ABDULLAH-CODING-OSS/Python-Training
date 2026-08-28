@@ -6,12 +6,14 @@ print("Password Generator")
 
 
 try:
-    lenght = int(input("Enter the length of the password: "))
-    choice = input("Enter the strength of the password (strong, medium, weak): ")
+    length = int(input("Enter the length of the password: "))
+    choice = input("Enter the strength of the password (strong, medium, weak): ").lower()
     print(choice)
-    password = generate(lenght, choice)
+    password = generate(length, choice)
     print(password)
-    savePassword(password)
-    print("Password saved to passwords.txt") 
-except:
+    if "Invalid" not in password:
+        savePassword(password)
+    
+
+except ValueError:
     print("Please enter a valid number for the length of the password.")
