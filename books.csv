@@ -5,7 +5,27 @@ Soumission,£50.10,One
 Sharp Objects,£47.82,Four
 Sapiens: A Brief History of Humankind,£54.23,Five
 The Requiem Red,£22.65,One
-The Dirty Little Secrets of Getting Your Dream Job,£33.34,Four
+The Dirty Little Secrets of Getting Your Dream Job,£33.34,FourScraping page: https://books.toscrape.com/
+Title: A Light in the Attic, Price: £51.77, Rating: Three
+Traceback (most recent call last):
+  File "d:\Devsorb Internship\Python\Web-Scrapper\main.py", line 35, in <module>
+    writer.writerow(book_data)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\jatt6\AppData\Local\Programs\Python\Python314\Lib\csv.py", line 225, in writerow
+    return self.writer.writerow(self._dict_to_list(rowdict))
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: I/O operation on closed file.
+(.venv) PS D:\Devsorb Internship\Python> Scraping page: https://books.toscrape.com/
+Title: A Light in the Attic, Price: £51.77, Rating: Three
+Traceback (most recent call last):
+  File "d:\Devsorb Internship\Python\Web-Scrapper\main.py", line 35, in <module>
+    writer.writerow(book_data)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\jatt6\AppData\Local\Programs\Python\Python314\Lib\csv.py", line 225, in writerow
+    return self.writer.writerow(self._dict_to_list(rowdict))
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: I/O operation on closed file.
+(.venv) PS D:\Devsorb Internship\Python> 
 "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",£17.93,Three
 The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,£22.60,Four
 The Black Maria,£52.15,One
