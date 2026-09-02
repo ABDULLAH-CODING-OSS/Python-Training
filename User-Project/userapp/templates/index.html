@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+        <title>Logged In User</title>
+    </head>
+    <body>
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>You are now logged in.</p>
+        <p> Best Website in the planet<p>
+        <a href="{% url 'logout' %}">Logout</a>
+    </body>
+</html>
