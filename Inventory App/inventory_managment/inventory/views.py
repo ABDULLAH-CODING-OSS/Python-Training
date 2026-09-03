@@ -22,7 +22,8 @@ class SignUpView(View):
                 password=form.cleaned_data['password1']
                 )
             login(request, user)
-            return redirect('index') 
+
+            return redirect('index')  # Redirect to the index page after successful registration
         return render(request, 'inventory/signup.html', {'form': form})
 
          # Redirect to the index page after successful registration
