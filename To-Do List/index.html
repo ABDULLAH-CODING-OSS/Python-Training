@@ -1,0 +1,36 @@
+<!DOCTYPE html>  <!-- Html  Declaring Document -->
+<html lang="en"> <!--Language Setup -->
+<head>           <!--Head Setup Contains information about my page-->
+    <meta charset="UTF-8"> <!--Using UTF-8 Encoding-->
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        TASK BOARD
+    </title>
+    <link rel ="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1> TASK BOARD</h1>
+    </header>
+    <main class="board">
+        <section class="column" id="todo">
+              <h2> To Do</h2>
+        <form class = "add-task-form">
+            <input type = "text" placeholder="Add a Task..." required>
+            <button type = "submit">ADD</button>
+        </form>
+        <div class = "task-list"></div>
+        </section>
+        <section class = "column" id = "in-progress">
+            <h2>In Progress</h2>
+            <div class="task-list"></div>
+        </section>
+        <section class ="column" id="done">
+            <h2> DONE</h2>
+            <div class ="task-list"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
