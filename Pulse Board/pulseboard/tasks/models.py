@@ -1,9 +1,32 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+
 # Create your models here.
 class Tag(models.Model):
-    pass
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+    
 
 class Task(models.Model):
-    pass
+    STATUS_CHOICES =[
+        ('todo', 'To Do'),
+        ('in_progress', 'In Progress'),
+        ('completed', 'Cpmpleted'),
+    ]
+
+    title = models.CharField(max_length=200)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='todo')
+    assigned_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.title
+
+    
+import tasks.signals
