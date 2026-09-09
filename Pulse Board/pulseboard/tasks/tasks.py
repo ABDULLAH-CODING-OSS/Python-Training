@@ -10,3 +10,10 @@ def send_task_assignment_notification(task_id, task_title, user_email=None):
 
 
 
+@shared_task
+def cleanup_completed_tasks_summary():
+    from .models import Task
+    completed_count = Task.objects.filter(status='completed').count()
+
+    print(f"[CELERY BEAT] Periodic Check: Found {completed_count} completed tasks in system.")
+    return f"Summary complete: {completed_count} tasks checked."

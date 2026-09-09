@@ -133,3 +133,13 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
+
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    'daily-task-summary-check': {
+        'task': 'tasks.tasks.cleanup_completed_tasks_summary',
+        # 'schedule': crontab(minute='0', hour='0')
+        'schedule': 30.0,
+    },
+}
