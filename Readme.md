@@ -95,6 +95,19 @@ A Python web scraper for [Books to Scrape](https://books.toscrape.com/), built w
 
 The scraper collects book titles, prices, and ratings from the available pages and writes the results to `books.csv`.
 
+### 8. Pulse Board
+
+Location: `Pulse Board/pulseboard`
+
+A pulse board app that uses celery , redis and signals to trigger notification and completed task summary after every 30 seconds
+
+Key features:
+
+- Task Creation triggering Signals for effeciency
+- Redis working as broker to put tasks in a Queue
+- Celery Worker running these tasks in another process (background jobs)
+- Celery Beat scheduling repetitive task of task completed summary after every 30 seconds
+
 ## Technologies Used
 
 - Python
@@ -151,6 +164,12 @@ python main.py
 ### To-do list
 
 Open `To-Do List/index.html` in a web browser.
+
+### Pulse Board
+
+cd pulseboard/pulseboard
+py manage.py shell
+create a task and run docker in other terminal as well
 
 ## Learning Outcomes
 
