@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'DemoMiddleWare.middleware.DemoMiddleWare',
 ]
 
 ROOT_URLCONF = 'inventory_managment.urls'
@@ -136,3 +137,20 @@ LOGIN_REDIRECT_URL = '/dashboard/'  # Redirect to the dashboard after successful
 LOGIN_URL = 'login'
 
 LOW_QUANTITY= 3
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "DemoMiddleWare.middleware": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+    },
+}
