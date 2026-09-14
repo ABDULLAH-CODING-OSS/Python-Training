@@ -1,4 +1,5 @@
 {% extends 'inventory/base.html' %}
+{% load i18n %}
 
 {% block content %}
 	{% if messages %}
@@ -25,10 +26,10 @@
 			<table class="table table-hover table-striped">
 				<thead>
 					<tr>
-						<th scope="col">ID</th>
-						<th scope="col">Name</th>
-						<th scope="col">Qty</th>
-						<th scope="col">Category</th>
+						<th scope="col">{% trans "ID" %}</th>
+						<th scope="col">{% trans "Name" %}</th>
+						<th scope="col">{% trans "Qty" %}</th>
+						<th scope="col">{% trans "Category" %}</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
@@ -55,8 +56,8 @@
 							<td class="text-success">{{ item.quantity }}</td>
 						{% endif %}
 						<td>{{ item.category.name }}</td>
-						<td><a href="{% url 'edit-item' item.id %}" class="btn btn-outline-secondary">Edit</a></td>
-						<td><a href="{% url 'delete-item' item.id %}" class="btn btn-secondary">Delete</a></td>
+						<td><a href="{% url 'edit-item' item.id %}" class="btn btn-outline-secondary">{% trans "Edit" %}</a></td>
+						<td><a href="{% url 'delete-item' item.id %}" class="btn btn-secondary">{% trans "Delete" %}</a></td>
 					</tr>
 					{% endfor %}
 				</tbody>
@@ -64,8 +65,8 @@
 			<div class="d-flex justify-content-between align-items-center mt-3">
     <div>
         {% if page_obj.has_previous %}
-            <a href="?page=1" class="btn btn-outline-primary btn-sm">First</a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-primary btn-sm">Previous</a>
+            <a href="?page=1" class="btn btn-outline-primary btn-sm">{% trans "First"%}</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-primary btn-sm">{% trans "Previous" %}</a>
         {% endif %}
     </div>
 
@@ -73,8 +74,8 @@
 
     <div>
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-primary btn-sm">Next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-primary btn-sm">Last</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-primary btn-sm">{% trans "Next" %}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-primary btn-sm">{% trans "Last" %}</a>
         {% endif %}
     </div>
 </div>

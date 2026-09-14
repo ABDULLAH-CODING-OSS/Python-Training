@@ -25,6 +25,11 @@ SECRET_KEY = 'django-insecure-rcw4u7j9c2*br=u&8g^*2(n5=xt^%bstwhbi6hblv$gy^!v)^l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+USE_I18N = True
+
+LANGUAGE_CODE= 'en-us'
+
+
 ALLOWED_HOSTS = []
 
 
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -52,7 +58,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'DemoMiddleWare.middleware.DemoMiddleWare',
 ]
+ 
+LANGUAGES = [
+    ('en', 'English'),
+    ('fr', 'French'),
+    ('ur', 'Urdu'),
+]
 
+
+from pathlib import Path
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 ROOT_URLCONF = 'inventory_managment.urls'
 
 TEMPLATES = [
@@ -154,3 +172,4 @@ LOGGING = {
         },
     },
 }
+
