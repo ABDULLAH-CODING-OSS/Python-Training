@@ -1,0 +1,142 @@
+# Inventory Management System - Urdu Translation File.
+# Copyright (C) 2026
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR , 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-14 19:18+0500\n"
+"PO-Revision-Date: 2026-09-14 19:25+0500\n"
+"Last-Translator: FULL NAME \n"
+"Language-Team: Urdu \n"
+"Language: ur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\inventory\templates\inventory\dashboard.html:29
+msgid "ID"
+msgstr "آئی ڈی"
+
+#: .\inventory\templates\inventory\dashboard.html:30
+msgid "Name"
+msgstr "نام"
+
+#: .\inventory\templates\inventory\dashboard.html:31
+msgid "Qty"
+msgstr "مقدار"
+
+#: .\inventory\templates\inventory\dashboard.html:32
+msgid "Category"
+msgstr "زمرہ"
+
+#: .\inventory\templates\inventory\dashboard.html:59
+msgid "Edit"
+msgstr "ترمیم کریں"
+
+#: .\inventory\templates\inventory\dashboard.html:60
+#: .\inventory\templates\inventory\delete_item.html:15
+msgid "Delete"
+msgstr "حذف کریں"
+
+#: .\inventory\templates\inventory\dashboard.html:68
+msgid "First"
+msgstr "پہلا"
+
+#: .\inventory\templates\inventory\dashboard.html:69
+msgid "Previous"
+msgstr "پچھلا"
+
+#: .\inventory\templates\inventory\dashboard.html:77
+msgid "Next"
+msgstr "اگلا"
+
+#: .\inventory\templates\inventory\dashboard.html:78
+msgid "Last"
+msgstr "آخری"
+
+#: .\inventory\templates\inventory\delete_item.html:7
+msgid "Go back"
+msgstr "واپس جائیں"
+
+#: .\inventory\templates\inventory\delete_item.html:11
+msgid "Are you sure you want to delete"
+msgstr "کیا آپ واقعی حذف کرنا چاہتے ہیں"
+
+#: .\inventory\templates\inventory\delete_item.html:12
+msgid "This cannot be undone"
+msgstr "اس عمل کو واپس نہیں لیا جا سکتا"
+
+#: .\inventory\templates\inventory\index.html:9
+msgid "Welcome to Inventory Management System"
+msgstr "انوینٹری مینجمنٹ سسٹم میں خوش آمدید"
+
+#: .\inventory\templates\inventory\index.html:10
+msgid ""
+"Keep track of your inventory with ease and efficiency. Our system allows you "
+"to manage your products, monitor stock levels, and generate reports "
+"effortlessly."
+msgstr ""
+"آسانی اور کارکردگی کے ساتھ اپنی انوینٹری کا حساب رکھیں۔ ہمارا سسٹم آپ کو اپنی "
+"مصنوعات کا انتظام کرنے، اسٹاک کی سطح پر نظر رکھنے اور بغیر کسی دقت کے رپورٹس "
+"تیار کرنے کی اجازت دیتا ہے۔"
+
+#: .\inventory\templates\inventory\index.html:12
+msgid "Get Started Now!"
+msgstr "ابھی شروع کریں!"
+
+#: .\inventory\templates\inventory\login.html:8
+msgid "LOG IN"
+msgstr "لاگ ان کریں"
+
+#: .\inventory\templates\inventory\login.html:12
+#: .\inventory\templates\inventory\navigation.html:31
+msgid "Sign In"
+msgstr "سائن ان کریں"
+
+#: .\inventory\templates\inventory\login.html:15
+msgid "Need an account?"
+msgstr "کیا آپ کو اکاؤنٹ کی ضرورت ہے؟"
+
+#: .\inventory\templates\inventory\login.html:15
+msgid "Sign up"
+msgstr "سائن اپ کریں"
+
+#: .\inventory\templates\inventory\logout.html:8
+msgid "You Have Been Logged Out"
+msgstr "آپ کو لاگ آؤٹ کر دیا گیا ہے"
+
+#: .\inventory\templates\inventory\logout.html:11
+msgid "Log In Again"
+msgstr "دوبارہ لاگ ان کریں"
+
+#: .\inventory\templates\inventory\navigation.html:4
+msgid "Inventory Manager"
+msgstr "انوینٹری مینیجر"
+
+#: .\inventory\templates\inventory\navigation.html:26
+msgid "logout"
+msgstr "لاگ آؤٹ"
+
+#: .\inventory\templates\inventory\navigation.html:35
+#: .\inventory\templates\inventory\signup.html:25
+msgid "Sign Up"
+msgstr "سائن اپ کریں"
+
+#: .\inventory\templates\inventory\signup.html:28
+msgid "Already Have an Account?"
+msgstr "کیا پہلے سے اکاؤنٹ موجود ہے؟"
+
+#: .\inventory\templates\inventory\signup.html:28
+msgid "Log in"
+msgstr "لاگ ان کریں"
+
+#: .\inventory\views.py:37 .\inventory\views.py:48
+#, python-format
+msgid "%(count)d item has low inventory"
+msgid_plural "%(count)d items have low inventory"
+msgstr[0] "%(count)d آئٹم کا اسٹاک کم ہے"
+msgstr[1] "%(count)d آئٹمز کا اسٹاک کم ہے"
