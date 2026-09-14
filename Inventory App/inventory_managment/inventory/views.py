@@ -7,6 +7,7 @@ from .models import InventoryItem, Category
 from django.contrib.auth.mixins import LoginRequiredMixin
 from inventory_managment.settings import LOW_QUANTITY
 from django.contrib import messages
+from django.core.paginator import Paginator
 # Create your views here.
 class Index(TemplateView):
     template_name = 'inventory/index.html'
@@ -14,6 +15,12 @@ class Dashboard(LoginRequiredMixin, View):
     def get(self, request):
 
         items = InventoryItem.objects.filter(user=self.request.user.id).order_by('id')
+        
+        paginator = Paginator(items, 5)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        
+        
 
         low_inventory = InventoryItem.objects.filter(
             user = self.request.user.id,
@@ -32,7 +39,7 @@ class Dashboard(LoginRequiredMixin, View):
         ).values_list('id', flat=True)
 
 
-        return render(request, 'inventory/dashboard.html', {'items': items, 'low_inventory_ids' : low_inventory_ids})
+        return render(request, 'inventory/dashboard.html', {'page_obj': page_obj, 'low_inventory_ids' : low_inventory_ids})
 class SignUpView(View):
     def get(self, request):
         form = UserRegisterForm()
