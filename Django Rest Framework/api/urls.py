@@ -5,4 +5,5 @@ urlpatterns = [
     path("students", views.studentsView),
     path("students/<int:pk>/", views.StudentDetailView),
     path("employees/", views.Employees.as_view()),
+    path("employees/<int:pk>/", views.EmployeeDetailView.as_view()),
 ]
