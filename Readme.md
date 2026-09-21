@@ -1,6 +1,6 @@
 # Python Development Tasks
 
-This repository contains the Python and web development practice projects completed during my learning of Django(Python-Internship). It includes Python utilities, frontend applications, web scraping, and Django web applications.
+This repository contains the Python and web development practice projects completed during my Python and Django internship. It includes Python utilities, frontend applications, web scraping, Django applications, and REST APIs.
 
 ## Projects
 
@@ -95,23 +95,41 @@ A Python web scraper for [Books to Scrape](https://books.toscrape.com/), built w
 
 The scraper collects book titles, prices, and ratings from the available pages and writes the results to `books.csv`.
 
-### 8. Pulse Board
+### 8. Django REST Framework API
 
-Location: `Pulse Board/pulseboard`
+Location: `Django Rest Framework/`
 
-A pulse board app that uses celery , redis and signals to trigger notification and completed task summary after every 30 seconds
+A Django REST Framework project that exposes API endpoints for students, employees, blogs, and comments.
 
 Key features:
 
-- Task Creation triggering Signals for effeciency
-- Redis working as broker to put tasks in a Queue
-- Celery Worker running these tasks in another process (background jobs)
-- Celery Beat scheduling repetitive task of task completed summary after every 30 seconds
+- Student list, create, retrieve, update, and delete endpoints
+- Employee CRUD endpoints using a DRF `ModelViewSet`
+- Blog and comment CRUD endpoints using generic API views
+- Employee pagination and department filtering
+- Blog search and ordering
+- JSON serialization with Django REST Framework serializers
+
+### 9. Pulse Board
+
+Location: `Pulse Board/pulseboard/`
+
+A Django task board that uses Celery and Redis for background notifications and periodic summaries.
+
+Key features:
+
+- Task assignment notifications sent as background jobs
+- Redis used as the Celery broker and result backend
+- Celery workers processing background tasks
+- Celery Beat checking the completed-task count every 30 seconds
 
 ## Technologies Used
 
 - Python
 - Django
+- Django REST Framework
+- Celery
+- Redis
 - HTML, CSS, and JavaScript
 - SQLite
 - Requests
@@ -123,7 +141,7 @@ Key features:
 
 ### Django applications
 
-Open a terminal in the relevant project directory, install Django if needed, and run the development server:
+Open a terminal in the relevant project directory, install the required dependencies, and run the development server:
 
 ```powershell
 cd "Blog-Website\Blog"
@@ -136,6 +154,13 @@ The same command can be used from these Django project directories:
 Inventory App\inventory_managment
 User-Project\userapp
 Weather-App\weatherDetector
+```
+
+For the REST API:
+
+```powershell
+cd "Django Rest Framework"
+python manage.py runserver
 ```
 
 For the inventory project, install its dependencies first:
@@ -167,9 +192,24 @@ Open `To-Do List/index.html` in a web browser.
 
 ### Pulse Board
 
-cd pulseboard/pulseboard
-py manage.py shell
-create a task and run docker in other terminal as well
+Start Redis, then open separate terminals for the worker, scheduler, and Django server:
+
+```powershell
+cd "Pulse Board\pulseboard"
+python manage.py runserver
+```
+
+```powershell
+cd "Pulse Board\pulseboard"
+celery -A pulseboard worker --loglevel=info
+```
+
+```powershell
+cd "Pulse Board\pulseboard"
+celery -A pulseboard beat --loglevel=info
+```
+
+The periodic summary is configured for every 30 seconds. The project dependencies are listed in `Pulse Board/requirements.txt`.
 
 ## Learning Outcomes
 
