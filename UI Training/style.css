@@ -141,7 +141,16 @@ padding-top: 50px;
 #about-us ul li{
     margin: 10px 0;
 }
+#about-us .col-md-6:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
+#about-us .col-md-6:last-child img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* Testimonials Section */
 #testimonials {
@@ -168,4 +177,113 @@ padding-top: 50px;
 
 .testimonials p {
   font-style: italic;
+}
+/* Social Media Section */
+#social-media {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+#social-media h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+
+#social-media i {
+  font-size: 50px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #7b1798;
+}
+
+#social-media a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+#social-media a:hover i {
+  transform: translateY(-10px);
+  color: #7b1798;
+}
+#footer {
+  position: relative;
+  color: #fff;
+  background:
+    linear-gradient(rgba(61, 15, 87, 0.85), rgba(61, 15, 87, 0.85)),
+    url("images/footer.jpg") center / cover no-repeat;
+}
+
+#footer .footer-img {
+  display: none;
+}
+
+#footer .footer-content {
+  padding: 60px 15px 20px;
+}
+
+#footer h5 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#footer p {
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#footer a:hover {
+  color: #e2a9f3;
+}
+
+#footer i {
+  margin-right: 8px;
+}
+
+#footer hr {
+  border-color: rgba(255, 255, 255, 0.4);
+  margin: 25px 0 15px;
+  opacity: 1;
+}
+
+#footer .copyright {
+  font-size: 14px;
+  text-align: center;
+}
+#footer .newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#footer .newsletter-form input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 12px;
+}
+
+#footer .newsletter-form input:focus {
+  box-shadow: 0 0 0 3px rgba(226, 169, 243, 0.5);
+}
+
+#footer .btn-subscribe {
+  background: linear-gradient(to right, #a517ba, #7b1798);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#footer .btn-subscribe:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
