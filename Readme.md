@@ -74,7 +74,20 @@ Key features:
 - Delete tasks
 - Persist tasks in browser `localStorage`
 
-### 6. User Authentication Project
+### 6. UI Training Landing Page
+
+Location: `UI Training/`
+
+A responsive marketing landing page built with HTML, CSS, Bootstrap, and Font Awesome.
+
+Key features:
+
+- Modern navigation bar and hero banner
+- Services, about us, client testimonials, and social media sections
+- Clean marketing-style layout with a responsive design
+- Reusable UI components styled for a professional landing page
+
+### 7. User Authentication Project
 
 Location: `User-Project/userapp`
 
@@ -87,7 +100,7 @@ Key features:
 - Redirect unauthenticated users to the login page
 - Django session management
 
-### 7. Weather App
+### 8. Weather App
 
 Location: `Weather-App/weatherDetector`
 
@@ -101,7 +114,7 @@ Displayed information includes:
 - Atmospheric pressure
 - Humidity
 
-### 8. Book Web Scraper
+### 9. Book Web Scraper
 
 Location: `Web-Scrapper/`
 
@@ -109,7 +122,7 @@ A Python web scraper for [Books to Scrape](https://books.toscrape.com/), built w
 
 The scraper collects book titles, prices, and ratings from the available pages and writes the results to `books.csv`.
 
-### 9. Django REST Framework API
+### 10. Django REST Framework API
 
 Location: `Django Rest Framework/`
 
@@ -124,7 +137,7 @@ Key features:
 - Blog search and ordering
 - JSON serialization with Django REST Framework serializers
 
-### 10. Pulse Board
+### 11. Pulse Board
 
 Location: `Pulse Board/pulseboard/`
 
@@ -148,6 +161,8 @@ Key features:
 - Celery
 - Redis
 - HTML, CSS, and JavaScript
+- Bootstrap
+- Font Awesome
 - SQLite
 - Requests
 - BeautifulSoup
@@ -220,6 +235,10 @@ python main.py
 ### To-do list
 
 Open `To-Do List/index.html` in a web browser.
+
+### UI training landing page
+
+Open `UI Training/index.html` in a web browser to view the landing page.
 
 ### Pulse Board
 
