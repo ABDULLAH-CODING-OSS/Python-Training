@@ -1,4 +1,4 @@
-# Python Development Tasks
+# React Js & Python Development Tasks
 
 This repository contains the Python, Django, and FastAPI projects completed during my internship. It covers frontend work, database-driven web apps, API development, web scraping, and automation tasks.
 
