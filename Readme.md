@@ -150,6 +150,20 @@ Key features:
 - Celery workers processing background tasks
 - Celery Beat checking the completed-task count every 30 seconds
 
+### 12. React Training Website
+
+Location: `React-Training/website-project`
+
+A responsive React landing page built with Vite, Tailwind CSS, and custom UI components.
+
+Key features:
+
+- Modern hero section and navigation bar
+- Responsive marketing-style layout
+- Feature cards and user/testimonial-style sections
+- Reusable React components for a polished landing page
+- Styling with Tailwind CSS and Remix Icon assets
+
 ## Technologies Used
 
 - Python
@@ -160,6 +174,9 @@ Key features:
 - JWT / OAuth2
 - Celery
 - Redis
+- React
+- Vite
+- Tailwind CSS
 - HTML, CSS, and JavaScript
 - Bootstrap
 - Font Awesome
@@ -261,6 +278,20 @@ celery -A pulseboard beat --loglevel=info
 
 The periodic summary is configured for every 30 seconds. The project dependencies are listed in `Pulse Board/requirements.txt`.
 
+### React training website
+
+```powershell
+cd "React-Training\website-project"
+npm install
+npm run dev
+```
+
+Then open the local Vite URL shown in the terminal, usually:
+
+```text
+http://localhost:5173
+```
+
 ## Learning Outcomes
 
 These tasks provided practical experience with:
@@ -275,3 +306,5 @@ These tasks provided practical experience with:
 - Building REST APIs with Django REST Framework
 - Building async-friendly APIs with FastAPI and Pydantic
 - Implementing JWT-based authentication and secure API access
+- Building responsive user interfaces with React and Vite
+- Styling layout components with Tailwind CSS and reusable UI patterns
