@@ -12,12 +12,12 @@ const App = () => {
   const [index, setIndex] = useState(1)
  
   const getData = async ()=>{
-   const response =  await axios.get('https://picsum.photos/v2/list?page=3&limit=15')
+   const response =  await axios.get(`https://picsum.photos/v2/list?page=${index}&limit=15`)
     console.log(response.data);
 
     setUserData(response.data)
 
-    Console.log(response.data);
+    console.log(response.data);
 
   }
 
@@ -25,7 +25,7 @@ const App = () => {
     function(){
       getData()
 
-    },[]
+    },[index]
   )
 
   let printUserData = <h3 className='text-gray-400 text-xs '>No User Available</h3>
@@ -64,13 +64,15 @@ const App = () => {
       <div className='flex justify-center gap-6 items-center p-4'>
         <button className='bg-amber-400 text-black text-sm cursor-pointer active:scale-95 px-4 py-2 rounded'
         onClick={()=>{
-          Console.log('Hello')
+          if(index>1){
+          setIndex(index -1)
+          }
         }}>
           Prev
           </button>
         <button className='bg-amber-400 text-black text-sm cursor-pointer active:scale-95 px-4 py-2 rounded'
           onClick={()=>{
-          Console.log('Hello')
+          setIndex(index +1)
         }}>
           Next
           </button>
