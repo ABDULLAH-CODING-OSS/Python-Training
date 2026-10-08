@@ -1,81 +1,120 @@
-import axios from 'axios';
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
-
-
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
-
-  const [userData, setUserData]=useState([])
-
+  const [userData, setUserData] = useState([])
   const [index, setIndex] = useState(1)
- 
-  const getData = async ()=>{
-   const response =  await axios.get(`https://picsum.photos/v2/list?page=${index}&limit=15`)
-    console.log(response.data);
+  const [loading, setLoading] = useState(false)
 
-    setUserData(response.data)
-
-    console.log(response.data);
-
+  const getData = async () => {
+    setLoading(true)
+    try {
+      const response = await axios.get(
+        `https://picsum.photos/v2/list?page=${index}&limit=15`
+      )
+      setUserData(response.data)
+    } catch (error) {
+      console.log(error)
+      setUserData([])
+    }
+    setLoading(false)
   }
 
-  useEffect(
-    function(){
-      getData()
+  useEffect(function () {
+    window.scrollTo(0, 0) // start each page from the top
+    getData()
+  }, [index])
 
-    },[index]
+  // Default: nothing to show
+  let printUserData = (
+    <p className='text-stone-400 text-sm'>
+      No photos found. Try the next page.
+    </p>
   )
 
-  let printUserData = <h3 className='text-gray-400 text-xs '>No User Available</h3>
-
-  if(userData.length>0){
-    printUserData = userData.map(
-      function(elem){
-        return <div
-    key={elem.id}
-    className="flex flex-col overflow-hidden h-52 w-44 text-black rounded-xl"
-  ><a href={elem.url}>
-          <img
-      className="h-40 w-full object-cover"
-      src={elem.download_url}
-      alt={elem.author}
-    />
-         <div className="px-2 py-1">
-      <h2 className="text-sm text-white uppercase  text-center font-semibold truncate">{elem.author}</h2>
-      
-    </div>
-    </a>
-        </div>
-      }
-    )
+  // While loading: grey pulsing boxes of two different heights
+  if (loading) {
+    printUserData = Array.from({ length: 15 }).map(function (_, i) {
+      return (
+        <div
+          key={i}
+          className={`mb-4 break-inside-avoid animate-pulse rounded-lg bg-stone-800 ${
+            i % 2 === 0 ? 'h-40' : 'h-64'
+          }`}
+        ></div>
+      )
+    })
   }
+  // Loaded: one card per photo
+  else if (userData.length > 0) {
+    printUserData = userData.map(function (elem) {
+      // keep each photo's real shape: width 500, height from the original ratio
+      const height = Math.round((500 * elem.height) / elem.width)
+
+      return (
+        <a
+          key={elem.id}
+          href={elem.url}
+          target='_blank'
+          rel='noreferrer'
+          className='mb-4 block break-inside-avoid'
+        >
+          <img
+            className='h-auto w-full rounded-lg bg-stone-800'
+            src={`https://picsum.photos/id/${elem.id}/500/${height}`}
+            width={500}
+            height={height}
+            alt={`Photo by ${elem.author}`}
+            loading='lazy'
+          />
+          <div className='mt-2 flex justify-between gap-2 px-1 text-sm'>
+            <h2 className='truncate font-medium text-stone-100'>
+              {elem.author}
+            </h2>
+            <span className='shrink-0 text-stone-500'>#{elem.id}</span>
+          </div>
+        </a>
+      )
+    })
+  }
+
   return (
-    <div className='bg-black overflow-auto h-screen p-4 text-white'>
-      {/* <button 
-      onClick={getData}
-      className='bg-green-500 active:scale-95 mb-3 px-5 rounded text-white'>
-        get data
-      </button> */}
-      <div className='flex flex-wrap gap-4 p-2'>
-        {printUserData}
-      </div>
-      <div className='flex justify-center gap-6 items-center p-4'>
-        <button className='bg-amber-400 text-black text-sm cursor-pointer active:scale-95 px-4 py-2 rounded'
-        onClick={()=>{
-          if(index>1){
-          setIndex(index -1)
-          }
-        }}>
-          Prev
+    <div className='min-h-screen bg-stone-950 text-stone-100'>
+      <div className='mx-auto max-w-6xl px-4 py-10'>
+        {/* Header */}
+        <div className='mb-10 text-center'>
+          <h1 className='font-serif text-4xl font-semibold tracking-tight'>
+            Photo Gallery
+          </h1>
+          <p className='mt-2 text-sm text-stone-400'>
+            Showing 15 photos per page
+          </p>
+        </div>
+
+        {/* Gallery: columns make a masonry layout */}
+        <div className='columns-2 gap-4 sm:columns-3 lg:columns-5'>
+          {printUserData}
+        </div>
+
+        {/* Pagination */}
+        <div className='mt-10 flex items-center justify-center gap-6'>
+          <button
+            disabled={index === 1}
+            onClick={() => setIndex(index - 1)}
+            className='cursor-pointer rounded-full bg-stone-100 px-6 py-2 text-sm font-semibold text-stone-900 transition hover:bg-white active:scale-95 disabled:cursor-not-allowed disabled:opacity-30'
+          >
+            Prev
           </button>
-        <button className='bg-amber-400 text-black text-sm cursor-pointer active:scale-95 px-4 py-2 rounded'
-          onClick={()=>{
-          setIndex(index +1)
-        }}>
-          Next
+
+          <span className='text-sm text-stone-400'>Page {index}</span>
+
+          <button
+            onClick={() => setIndex(index + 1)}
+            className='cursor-pointer rounded-full bg-stone-100 px-6 py-2 text-sm font-semibold text-stone-900 transition hover:bg-white active:scale-95'
+          >
+            Next
           </button>
+        </div>
       </div>
     </div>
   )
