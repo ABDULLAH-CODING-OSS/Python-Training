@@ -164,6 +164,20 @@ Key features:
 - Reusable React components for a polished landing page
 - Styling with Tailwind CSS and Remix Icon assets
 
+### 13. Mini AI Project
+
+Location: `mini_project`
+
+A Next.js application that sends prompts to Google Gemini and displays AI-generated responses in a simple interface.
+
+Key features:
+
+- User prompt input and response output area
+- Integration with Google Gemini via the `@google/genai` SDK
+- Server-side AI actions in a Next.js app
+- Responsive UI styled with Tailwind CSS
+- Environment-based API key configuration
+
 ## Technologies Used
 
 - Python
@@ -175,6 +189,8 @@ Key features:
 - Celery
 - Redis
 - React
+- Next.js
+- TypeScript
 - Vite
 - Tailwind CSS
 - HTML, CSS, and JavaScript
@@ -183,6 +199,7 @@ Key features:
 - SQLite
 - Requests
 - BeautifulSoup
+- Google Gemini API
 - CSV data processing
 - Browser `localStorage`
 
@@ -292,6 +309,26 @@ Then open the local Vite URL shown in the terminal, usually:
 http://localhost:5173
 ```
 
+### Mini AI project
+
+```powershell
+cd "mini_project"
+npm install
+npm run dev
+```
+
+Create a `.env` file or add your Google Gemini API key before running the app:
+
+```text
+GOOGLE_GEMINI_API_KEY=your_api_key_here
+```
+
+Then open the local Next.js URL shown in the terminal, usually:
+
+```text
+http://localhost:3000
+```
+
 ## Learning Outcomes
 
 These tasks provided practical experience with:
@@ -308,3 +345,4 @@ These tasks provided practical experience with:
 - Implementing JWT-based authentication and secure API access
 - Building responsive user interfaces with React and Vite
 - Styling layout components with Tailwind CSS and reusable UI patterns
+- Integrating AI APIs with Next.js and handling server-side environment variables
