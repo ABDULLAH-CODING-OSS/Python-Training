@@ -19,6 +19,61 @@
   --foreground: #ededed;
 }
 
+.spotlight-beam {
+  transform-origin: 0 0;
+  background: conic-gradient(
+    from 0deg at 0% 0%,
+    transparent 0deg,
+    transparent 25deg,
+    color-mix(in srgb, var(--spotlight-color) 4%, transparent) 38deg,
+    color-mix(in srgb, var(--spotlight-color) 12%, transparent) 58deg,
+    color-mix(in srgb, var(--spotlight-color) 5%, transparent) 78deg,
+    transparent 100deg,
+    transparent 360deg
+  );
+  filter: blur(30px);
+  animation: spotlight-sweep 14s ease-in-out infinite alternate;
+}
+
+.spotlight-glow {
+  background: radial-gradient(
+    ellipse 70% 85% at 0% 0%,
+    color-mix(in srgb, var(--spotlight-color) 10%, transparent) 0%,
+    color-mix(in srgb, var(--spotlight-color) 3%, transparent) 34%,
+    transparent 76%
+  );
+  animation: spotlight-pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes spotlight-sweep {
+  from {
+    transform: rotate(-3deg);
+    opacity: 0.75;
+  }
+  to {
+    transform: rotate(3deg);
+    opacity: 1;
+  }
+}
+
+@keyframes spotlight-pulse {
+  from {
+    transform: scale(0.96);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-beam,
+  .spotlight-glow {
+    animation: none;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

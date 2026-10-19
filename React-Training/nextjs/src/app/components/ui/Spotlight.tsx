@@ -1,24 +1,32 @@
 import { cn } from "@/utils/cn";
+import type { CSSProperties } from "react";
 
 type SpotlightProps = {
   className?: string;
   fill?: string;
 };
 
+type SpotlightStyle = CSSProperties & {
+  "--spotlight-color": string;
+};
+
 export function Spotlight({
   className,
-  fill = "rgba(99, 102, 241, 0.22)",
+  fill = "#ffffff",
 }: SpotlightProps) {
+  const spotlightStyle: SpotlightStyle = { "--spotlight-color": fill };
+
   return (
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute -top-40 left-1/2 h-[36rem] w-[56rem] -translate-x-1/2 rounded-full blur-3xl",
+        "pointer-events-none absolute inset-0 overflow-hidden",
         className,
       )}
-      style={{
-        background: `radial-gradient(ellipse at center, ${fill} 0%, transparent 68%)`,
-      }}
-    />
+      style={spotlightStyle}
+    >
+      <div className="spotlight-beam absolute inset-0" />
+      <div className="spotlight-glow absolute inset-0" />
+    </div>
   );
 }
