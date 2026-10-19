@@ -20,49 +20,48 @@
 }
 
 .spotlight-beam {
-  transform-origin: 0 0;
-  background: conic-gradient(
-    from 0deg at 0% 0%,
-    transparent 0deg,
-    transparent 25deg,
-    color-mix(in srgb, var(--spotlight-color) 4%, transparent) 38deg,
-    color-mix(in srgb, var(--spotlight-color) 12%, transparent) 58deg,
-    color-mix(in srgb, var(--spotlight-color) 5%, transparent) 78deg,
-    transparent 100deg,
-    transparent 360deg
+  transform-origin: 20% 20%;
+  background: linear-gradient(
+    135deg,
+    transparent 8%,
+    color-mix(in srgb, var(--spotlight-color) 5%, transparent) 20%,
+    color-mix(in srgb, var(--spotlight-color) 13%, transparent) 36%,
+    color-mix(in srgb, var(--spotlight-color) 5%, transparent) 49%,
+    transparent 68%
   );
-  filter: blur(30px);
-  animation: spotlight-sweep 14s ease-in-out infinite alternate;
+  filter: blur(42px);
+  animation: spotlight-sweep 16s ease-in-out infinite alternate;
 }
 
 .spotlight-glow {
   background: radial-gradient(
-    ellipse 70% 85% at 0% 0%,
-    color-mix(in srgb, var(--spotlight-color) 10%, transparent) 0%,
-    color-mix(in srgb, var(--spotlight-color) 3%, transparent) 34%,
-    transparent 76%
+    ellipse 66% 88% at 12% 10%,
+    color-mix(in srgb, var(--spotlight-color) 18%, transparent) 0%,
+    color-mix(in srgb, var(--spotlight-color) 8%, transparent) 32%,
+    color-mix(in srgb, var(--spotlight-color) 2%, transparent) 56%,
+    transparent 78%
   );
   animation: spotlight-pulse 8s ease-in-out infinite alternate;
 }
 
 @keyframes spotlight-sweep {
   from {
-    transform: rotate(-3deg);
+    transform: rotate(-2deg) translateY(-1%);
     opacity: 0.75;
   }
   to {
-    transform: rotate(3deg);
+    transform: rotate(3deg) translateY(2%);
     opacity: 1;
   }
 }
 
 @keyframes spotlight-pulse {
   from {
-    transform: scale(0.96);
-    opacity: 0.8;
+    transform: scale(0.96) translate(-1%, -1%);
+    opacity: 0.85;
   }
   to {
-    transform: scale(1.04);
+    transform: scale(1.04) translate(2%, 2%);
     opacity: 1;
   }
 }

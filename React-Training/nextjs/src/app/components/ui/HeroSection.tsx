@@ -10,9 +10,9 @@ const learningPaths = [
 export default function HeroSection() {
   return (
     <section className="relative isolate flex min-h-screen flex-col justify-center overflow-hidden bg-black px-6 pb-16 pt-36 text-white sm:px-10 lg:px-12">
-      <Spotlight className="opacity-90" />
+      <Spotlight fill="#ffffff" />
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="max-w-2xl">
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-neutral-200">
             <span className="h-2 w-2 rounded-full bg-white" />
