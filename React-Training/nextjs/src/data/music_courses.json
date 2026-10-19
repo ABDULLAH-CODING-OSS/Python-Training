@@ -1,0 +1,44 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Guitar Fundamentals",
+      "slug": "guitar-fundamentals",
+      "description": "Learn the basics of playing guitar with our comprehensive beginner's course.",
+      "price": 99.99,
+      "instructor": "John Doe",
+      "isFeatured": true,
+      "image": "/courses/guitar.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Piano for Beginners",
+      "slug": "piano-for-beginners",
+      "description": "Start your musical journey with our interactive piano lessons for absolute beginners.",
+      "price": 89.99,
+      "instructor": "Jane Smith",
+      "isFeatured": false,
+      "image": "/courses/piano.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Advanced Web Development",
+      "slug": "advanced-web-development",
+      "description": "Master modern full-stack development with Next.js, Tailwind CSS, and robust backend integration.",
+      "price": 149.99,
+      "instructor": "Alex Johnson",
+      "isFeatured": true,
+      "image": "/courses/web-dev.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Python for Data Science",
+      "slug": "python-for-data-science",
+      "description": "Learn data analysis, machine learning libraries, and predictive modeling using Python.",
+      "price": 129.99,
+      "instructor": "Dr. Sarah Lee",
+      "isFeatured": false,
+      "image": "/courses/python.jpg"
+    }
+  ]
+}
