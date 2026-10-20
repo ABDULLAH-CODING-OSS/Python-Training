@@ -164,7 +164,33 @@ Key features:
 - Reusable React components for a polished landing page
 - Styling with Tailwind CSS and Remix Icon assets
 
-### 13. Mini AI Project
+### 13. Photo Gallery
+
+Location: `React-Training/Gallery-project/`
+
+A responsive React photo gallery built with Vite and Tailwind CSS. It loads photos from the Picsum Photos API.
+
+Key features:
+
+- Masonry-style gallery layout with responsive columns
+- Paginated photo results, showing 15 photos per page
+- Loading placeholders and lazy-loaded images
+- Photo author details and links to the original images
+
+### 14. Music Courses Website
+
+Location: `React-Training/nextjs/`
+
+A responsive music-course showcase built with Next.js, React, and TypeScript.
+
+Key features:
+
+- Navigation, hero, and featured-courses sections
+- Course cards populated from local JSON data
+- Course descriptions, instructor names, prices, and featured labels
+- Animated interface elements and dark styling
+
+### 15. Mini AI Project
 
 Location: `mini_project`
 
@@ -192,6 +218,8 @@ Key features:
 - Next.js
 - TypeScript
 - Vite
+- Axios
+- Framer Motion
 - Tailwind CSS
 - HTML, CSS, and JavaScript
 - Bootstrap
@@ -309,6 +337,30 @@ Then open the local Vite URL shown in the terminal, usually:
 http://localhost:5173
 ```
 
+### Photo gallery
+
+```powershell
+cd "React-Training\Gallery-project"
+npm install
+npm run dev
+```
+
+The gallery fetches photo data from the Picsum Photos API, so an internet connection is required.
+
+### Music courses website
+
+```powershell
+cd "React-Training\nextjs"
+npm install
+npm run dev
+```
+
+Then open the local Next.js URL shown in the terminal, usually:
+
+```text
+http://localhost:3000
+```
+
 ### Mini AI project
 
 ```powershell
@@ -344,5 +396,7 @@ These tasks provided practical experience with:
 - Building async-friendly APIs with FastAPI and Pydantic
 - Implementing JWT-based authentication and secure API access
 - Building responsive user interfaces with React and Vite
+- Fetching and paginating third-party API data in a React application
 - Styling layout components with Tailwind CSS and reusable UI patterns
+- Building typed, data-driven pages with Next.js and TypeScript
 - Integrating AI APIs with Next.js and handling server-side environment variables
